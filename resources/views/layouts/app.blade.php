@@ -204,7 +204,8 @@
 
     <script>
         var reciever_id = '';
-        var my_id = "{{Auth::id()}}"
+        var my_id = "{{Auth::id()}}"; 
+
         $(document).ready(function() {
             $('.user').click(function() {
                 $('.user').removeClass('active');
@@ -217,12 +218,12 @@
                     data: "",
                     cache: false,
                     success: function(data) {
+                        console.log('success'); 
+                        console.log({data})
                         $('#message').html(data);
                     },
                     error: function(err) {
-                        console.error({
-                            err
-                        })
+                        console.error(err.responseJSON)
                     }
                 })
             })
